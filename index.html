@@ -74,6 +74,14 @@ section{position:relative;z-index:1;padding:6rem 2rem}
 .sh-title{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700}
 .sh-line{width:45px;height:1px;background:var(--gold);margin:1.2rem auto 0}
 
+/* ── PROFILE PHOTO ── */
+.profile-wrap{display:flex;justify-content:center;margin-bottom:3rem;opacity:0;animation:fu .7s .3s forwards}
+.profile-frame{position:relative;width:180px;height:180px}
+.profile-frame::before{content:'';position:absolute;inset:-6px;border:1px solid var(--gold);border-radius:50%;opacity:0.4}
+.profile-frame::after{content:'';position:absolute;inset:-14px;border:1px solid var(--gold-dim);border-radius:50%}
+.profile-img{width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:center top;filter:grayscale(15%);transition:0.4s;border:2px solid var(--border)}
+.profile-frame:hover .profile-img{filter:grayscale(0%);border-color:var(--gold);box-shadow:0 0 30px var(--gold-dim)}
+
 /* ── ABOUT ── */
 .about-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
 .about-text p{color:var(--txt2);font-size:0.92rem;margin-bottom:1.2rem}
@@ -170,6 +178,7 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem;border-top:1px
   .ham.on span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
   section{padding:3.5rem 1.2rem}
   .hero{padding:3.5rem 1.2rem}
+  .profile-frame,.profile-img{width:140px;height:140px}
   .about-grid{grid-template-columns:1fr;gap:1.8rem}
   .p-card{grid-template-columns:1fr;gap:0}
   .p-num{font-size:1.8rem;margin-bottom:0.3rem}
@@ -198,6 +207,7 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem;border-top:1px
 <!-- HERO -->
 <section class="hero">
   <div>
+    <div class="profile-wrap"><div class="profile-frame"><img src="profile.jpeg" alt="Abin Acharya" class="profile-img"></div></div>
     <div class="hero-label">Ph.D. Candidate · Computer Science</div>
     <h1 class="hero-name">Abin <i>Acharya</i></h1>
     <p class="hero-sub">Researching at the intersection of Artificial Intelligence, Explainability, and Natural Language Processing at the University of Colorado, Colorado Springs.</p>
@@ -215,7 +225,7 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem;border-top:1px
   <div class="sh rv"><div class="sh-label">01 — About</div><h2 class="sh-title">Researcher & Engineer</h2><div class="sh-line"></div></div>
   <div class="about-grid">
     <div class="about-text rl">
-      <p>I am a Ph.D. candidate in Computer Science at the University of Colorado, Colorado Springs (UCCS), specializing in Artificial Intelligence, Machine Learning, Deep Learning, Reinforcement Learning, and Natural Language Processing.</p>
+      <p>I am a Ph.D. candidate in Computer Science at the University of Colorado, specializing in Artificial Intelligence, Machine Learning, Deep Learning, Reinforcement Learning, and Natural Language Processing.</p>
       <p>My research is driven by a passion for making AI systems more transparent and trustworthy. I focus on Explainable AI (XAI), multimodal methods, and advancing the capabilities of Large Language Models and Agentic AI systems.</p>
       <p>With strong foundations in programming (Python, C++) and deep learning frameworks (TensorFlow, PyTorch), I bring both theoretical rigor and practical engineering to every project.</p>
     </div>
@@ -223,7 +233,7 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem;border-top:1px
       <div class="d-item"><div class="d-icon">🎓</div><div><div class="d-label">Institution</div><div class="d-val">University of Colorado, Colorado Springs</div></div></div>
       <div class="d-item"><div class="d-icon">🔬</div><div><div class="d-label">Focus Areas</div><div class="d-val">XAI · NLP · LLMs · Agentic AI</div></div></div>
       <div class="d-item"><div class="d-icon">📍</div><div><div class="d-label">Location</div><div class="d-val">Colorado Springs, CO</div></div></div>
-      <div class="d-item"><div class="d-icon">📊</div><div><div class="d-label">GPA</div><div class="d-val">3.85 (Graduate) · 3.83 (Undergraduate)</div></div></div>
+      <div class="d-item"><div class="d-icon">📊</div><div><div class="d-label">GPA</div><div class="d-val">4 (Graduate) · 3.83 (Undergraduate)</div></div></div>
     </div>
   </div>
 </section>
@@ -251,7 +261,7 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem;border-top:1px
         <h3>Explainable AI for Malware Prediction</h3>
         <ul class="p-hl">
           <li>Built malware detection models using CNN baseline and TabTransformer on Microsoft Malware data</li>
-          <li>Applied BoolXAI for rule-based interpretability with human-readable explanations</li>
+          <li>BoolXAI for rule-based interpretability with human-readable explanations</li>
           <li>Focused on trustworthy ML — analyzing feature behavior beyond raw accuracy</li>
         </ul>
         <div class="p-tech"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">TabTransformer</span><span class="tag">CNN</span><span class="tag">SHAP</span><span class="tag">LIME</span><span class="tag">BoolXAI</span></div>
@@ -262,7 +272,7 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem;border-top:1px
       <div>
         <h3>Virtual Try-On Using Neural Networks</h3>
         <ul class="p-hl">
-          <li>Developed GAN-based virtual try-on with Geometric Matching Module and U-Net</li>
+          <li>Developed GAN-based virtual try-on with Geometric Matching Module and U-Net as generator</li>
           <li>Cloth warping via TPS transformation and pose estimation for realistic outputs</li>
           <li>Achieved 8% NMSE on 2000-image test set with efficient inference</li>
         </ul>
@@ -371,7 +381,7 @@ function draw(){
 draw();
 
 // ── TYPEWRITER ──
-const phrases=['Explainable AI · Trustworthy ML','Natural Language Processing · LLMs','Deep Learning · Neural Networks','Agentic AI · Reinforcement Learning','Computer Vision · Multimodal AI'];
+const phrases=['Natural Language Processing · LLMs','Deep Learning · Neural Networks','Agentic AI · Reinforcement Learning','Computer Vision · Multimodal AI'];
 let pi=0,ci=0,del=false;
 const te=document.getElementById('tw');
 function tw(){
